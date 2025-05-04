@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Script Painel</title>
+  <style>
+    body {
+      background-color: #1a0000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #ff4d4d;
+      margin-bottom: 40px;
+    }
+    button {
+      background-color: #ff4d4d;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 250px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Script painel by Pedrinhopsico</h1>
+
+  <button onclick="abrirLink('https://doritus.mmrcoss.tech/', 'doritus')">Doritus</button>
+  <button onclick="abrirLink('https://github.com/marcos10pc/expansao-noturna-cheeto', 'speak')">Speak</button>
+  <button onclick="abrirLink('https://matific.cupiditys.lol/dashboard', 'matific')">Matific</button>
+  <button onclick="copiarKhan()">Khan Academy</button>
+  <button onclick="window.open('https://github.com/marcos10pc/dont-f--with-paste-bookmark/tree/main', '_blank')">Redação v1</button>
+  <button onclick="window.open('https://github.com/marcos10pc/Cheeto-Essay-Maker', '_blank')">Redação v2</button>
+
+  <script>
+    function abrirLink(url, site) {
+      const host = window.location.hostname;
+      const permitido = {
+        doritus: "doritus.saladafuturo.com", // exemplo
+        speak: "speak.saladafuturo.com",
+        matific: "matific.saladafuturo.com"
+      };
+
+      if (host.includes(permitido[site])) {
+        window.open(url, "_blank");
+      } else {
+        alert("Esse botão só funciona no site correto do Sala do Futuro.");
+      }
+    }
+
+    function copiarKhan() {
+      const host = window.location.hostname;
+      if (!host.includes("khanacademy.org")) {
+        alert("Esse botão só funciona dentro do site Khan Academy.");
+        return;
+      }
+
+      const codigo = `javascript:fetch("https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js").then(t=>t.text()).then(eval);`;
+      navigator.clipboard.writeText(codigo).then(() => {
+        alert("Bookmark copiado! Só colar e executar.");
+      });
+    }
+  </script>
+</body>
+  </html>
